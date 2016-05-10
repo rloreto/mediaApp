@@ -13,24 +13,26 @@
     <script src="/js/lib/jquery/dist/jquery.min.js"></script>
     <script src="/js/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/js/lib/handlebars/handlebars.min.js"></script>
-      <script src="/js/src/helpers/handlebars.js"></script>
+    <script src="/js/src/helpers/handlebars.js"></script>
     <script src="/js/src/main.js"></script>
     <!-- /build -->
 
     <script id="list-of-medias" type="text/x-handlebars-template">
-      {{#each this}}
-      <div class="entry">
-        <h3>{{title}}</h1>
-        {{#if_eq provider "Vimeo"}}
-        <div class="embed-responsive embed-responsive-16by9">
-      		<iframe src="//player.vimeo.com/video/{{providerId}}?title=0&byline=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-      	</div>
-        {{/if_eq}}
-        <div class="body">
-          {{body}}
-        </div>
-      </div>
-      {{/each}}
+
+      {{#grouped_each 3 this}}
+          <div class="row">
+          {{#each this }}
+            <div class="col-xs-12 col-md-4">
+              <h3>{{title}}</h1>
+              {{#if_eq provider "Vimeo"}}
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe src="//player.vimeo.com/video/{{providerId}}?title=0&byline=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+              </div>
+              {{/if_eq}}
+            </div>
+          {{/each}}
+          </div>
+      {{/grouped_each}}
     </script>
 </head>
 <body>
@@ -69,7 +71,7 @@
             </ul>
         </div>
     </nav>
-    <div class="container theme-showcase">
+    <div class="container">
       <div id="list"></div>
     </div>
 </body>
