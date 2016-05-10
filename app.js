@@ -11,7 +11,9 @@ var mongoose = require('mongoose');
 
 var app = express();
 
-mongoose.connect('mongodb://localhost/myapp');
+//mongoose.connect('mongodb://localhost/myapp');
+mongoose.connect('mongodb://rloreto:5caV47OI1IgSu0IkIORzXyTMoQ4sp7zR5PjcC41EsPU-@ds034279.mlab.com:34279/rloreto');
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
