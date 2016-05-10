@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Media = require('../../models/media');
 
-//GET - Return all tvshows in the DB
+//GET - Return all medias in the DB
 exports.findAll = function(req, res) {
   Media.find(function(err, medias) {
     if (err) {
@@ -9,7 +9,7 @@ exports.findAll = function(req, res) {
     }
 
     console.log('GET /media');
-    res.status(200).jsonp(medias);
+    res.status(200).json(medias);
   });
 };
 
@@ -19,7 +19,7 @@ exports.add = function(req, res) {
 
   var media = new Media({
     title: req.body.title,
-    url: req.body.url,
+    providerId: req.body.providerId,
     user: req.body.user,
     provider: req.body.provider
   });
@@ -42,7 +42,7 @@ exports.findById = function(req, res) {
 exports.update = function(req, res) {
   Media.findById(req.params.id, function(err, media) {
     media.title = req.body.title;
-    media.url = req.body.url;
+    media.providerId = req.body.providerId;
     media.user = req.body.user;
     media.provider = req.body.provider;
 

@@ -1,0 +1,12 @@
+$primary-color: red;
+
+nav{
+  ul{
+    li{
+      div{
+        margin-left: 10px;
+        color: $primary-color;
+      }
+    }
+  }
+}
