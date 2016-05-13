@@ -20,14 +20,14 @@
 
     <script id="list-of-medias" type="text/x-handlebars-template">
 
-      {{#grouped_each 3 this}}
+      {{#grouped_each 3 medias}}
           <div class="row">
           {{#each this }}
             <div class="col-xs-12 col-md-4">
               <h3>{{title}}</h3>
               {{#if_eq provider "Vimeo"}}
               <div class="embed-responsive embed-responsive-16by9">
-                <iframe src="//player.vimeo.com/video/{{providerId}}?title=0&byline=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                <iframe src="//player.vimeo.com/video/{{id}}?title=0&byline=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
               </div>
               {{/if_eq}}
             </div>
