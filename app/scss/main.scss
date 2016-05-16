@@ -10,3 +10,11 @@ nav{
     }
   }
 }
+
+.js-media {
+  h4 {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: pre;
+  }
+}

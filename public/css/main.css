@@ -2,4 +2,9 @@ nav ul li div {
   margin-left: 10px;
   color: blue; }
 
+.js-media h4 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: pre; }
+
 /*# sourceMappingURL=main.css.map */

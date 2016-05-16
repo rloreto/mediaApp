@@ -1,24 +1,29 @@
 module.exports = function(app, router) {
-  var mediaController = require('./controllers/media');
+  var favoriteMediaController = require('./controllers/favoriteMedia');
   var vimeoController = require('./controllers/vimeo');
+  var flickrController = require('./controllers/flickr');
 
-  router.route('/medias')
-    .get(mediaController.findByPage)
-    .post(mediaController.add);
 
-  router.route('/medias/:page')
-      .get(mediaController.findByPage);
 
-  router.route('/medias/:id')
-    .get(mediaController.findById)
-    .put(mediaController.update)
-    .delete(mediaController.delete);
+  router.route('/favorites')
+    .get(favoriteMediaController.findByPage);
+  router.route('/favorites/:page')
+    .get(favoriteMediaController.findByPage);
 
-  router.route('/vimeos')
+  router.route('/favorite')
+    .post(favoriteMediaController.add);
+  router.route('/favorite/:mediaId')
+    .delete(favoriteMediaController.delete);
+
+
+  router.route('/vimeo/:query')
     .get(vimeoController.findByPage);
-  router.route('/vimeos/:page')
+  router.route('/vimeo/:query/:page')
     .get(vimeoController.findByPage);
-
+  router.route('/flickr/:query')
+    .get(flickrController.findByPage);
+  router.route('/flickr/:query/:page')
+    .get(flickrController.findByPage);
 
   app.use('/api', router);
 }

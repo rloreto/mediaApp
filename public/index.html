@@ -23,12 +23,15 @@
       {{#grouped_each 3 medias}}
           <div class="row">
           {{#each this }}
-            <div class="col-xs-12 col-md-4">
-              <h3>{{title}}</h3>
-              {{#if_eq provider "Vimeo"}}
+            <div class="js-media col-xs-12 col-md-4">
+              <h4>{{title}}</h4>
+              {{#if_eq provider "vimeo"}}
               <div class="embed-responsive embed-responsive-16by9">
                 <iframe src="//player.vimeo.com/video/{{id}}?title=0&byline=0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
               </div>
+              {{/if_eq}}
+              {{#if_eq provider "flickr"}}
+              <img src="{{url}}" class="img-responsive">
               {{/if_eq}}
             </div>
           {{/each}}
@@ -51,23 +54,9 @@
             <ul class="nav navbar-nav ">
                 <li><a href="# ">Inicio</a></li>
             </ul>
-            <form role="search " class="navbar-form navbar-left">
-                <div class="form-group ">
-                    <input type="text " placeholder="Buscar" class="form-control ">
-                </div>
-            </form>
+
 
             <ul class="nav navbar-nav navbar-right">
-                <li class="dropdown">
-                    <a href="# " class="dropdown-toggle glyphicon glyphicon-cog" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false ">Ajustes<span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li>
-                          <div class="checkbox">
-                            <label><input type="checkbox" value="">Option 1</label>
-                          </div>
-                        </li>
-                    </ul>
-                </li>
                 <li><a href="# ">Usuario: Test</a></li>
             </ul>
         </div>
